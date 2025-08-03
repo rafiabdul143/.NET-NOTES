@@ -141,5 +141,113 @@ Tkinter, PyQt (slower)
 
 
 2021+: C# 9, 10, 11+ introduce record types, improved pattern matching, source generators, and more.
+1)numerical data types
+Type
+Size
+Range
+Example
+int
+4 bytes
+-2,147,483,648 to 2,147,483,647
+int x = 100;
+long
+8 bytes
+Very large range
+long l = 123456789L;
+float
+4 bytes
+±1.5e−45 to ±3.4e38
+float f = 5.75f;
+double
+8 bytes
+±5.0e−324 to ±1.7e308
+double d = 19.99;
+decimal
+16 bytes
+High precision
+decimal price = 19.95m;
+byte
+1 byte
+0 to 255
+byte b = 255;
+sbyte
+1 byte
+-128 to 127
+sbyte sb = -100;
+
+
+ Text-Based Data Types
+char: Represents a single Unicode character
+
+char letter = 'A';
+
+string name = "Rafi";
+
+3️⃣ Converting Strings to Numbers and Boolean
+string s = "123";
+int num = Convert.ToInt32(s);      // or int.Parse(s);
+double d = Convert.ToDouble("3.14");
+
+string b = "true";
+bool value = Convert.ToBoolean(b);  // returns true
+
+int x = 42;
+string str = x.ToString();         // "42"
+
+4️⃣ Operators
+
+Type
+Operators
+Example
+Arithmetic
++, -, *, /, %
+a + b, a % b
+Assignment
+=, +=, -=, *=, /=
+x += 5
+Comparison
+==, !=, >, <, >=, <=
+x == y
+Logical
+&&, `
+
+
+
+5️⃣ Concatenation
+string firstName = "Rafi";
+string lastName = "Ahmed";
+string fullName = firstName + " " + lastName;  // Rafi Ahmed
+
+
+6️⃣ Remainder Operator (%)
+int result = 10 % 3;  // result = 1
+
+
+
+7️⃣ var Keyword
+Implicitly typed local variable – compiler infers the type:
+var age = 25;        // age is an int
+var name = "Rafi";   // name is a string
+
+8️⃣ const Keyword
+Used to declare constants (value cannot be changed):
+
+const double PI = 3.14159;
+
+9️⃣ Console Input and Output
+✅ output
+Console.WriteLine("Hello, World!");
+Console.Write("This is on the same line");
+✅ Input
+Console.Write("Enter your name: ");
+string name = Console.ReadLine();
+
+Console.Write("Enter your age: ");
+int age = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine($"Hello {name}, you are {age} years old.");
+
+
+
 
 
