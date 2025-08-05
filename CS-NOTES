@@ -248,6 +248,74 @@ int age = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine($"Hello {name}, you are {age} years old.");
 
 
+Conditional operators
+
+ 1. Ternary Operator (?:)
+condition ? expression_if_true : expression_if_false;
+
+int age = 20;
+string status = (age >= 18) ? "Adult" : "Minor";
+Console.WriteLine(status); // Output: Adult
+
+2. Null-coalescing Operator (??)
+Returns the left-hand operand if it’s not null; otherwise, it returns the right-hand operand.
+var result = value ?? defaultValue;
+
+string name = null;
+string finalName = name ?? "Guest";
+Console.WriteLine(finalName); // Output: Guest
+
+
+
+3. Null-coalescing Assignment Operator (??=)
+Assigns the right-hand value to the left-hand variable only if the left-hand variable is null.
+value ??= defaultValue;
+
+string name = null;
+name ??= "Guest";
+Console.WriteLine(name); // Output: Guest
+
+ 4. Logical Conditional Operators
+These are used to combine Boolean expressions:
+&& — Logical AND
+
+
+|| — Logical OR
+
+
+! — Logical NOT
+int a = 10, b = 20;
+
+if (a > 5 && b > 15)
+{
+    Console.WriteLine("Both conditions are true");
+}
+
+ 5. Relational Operators (used in conditions)
+== (Equal to)
+
+
+!= (Not equal to)
+
+
+> (Greater than)
+
+
+< (Less than)
+
+
+>= (Greater than or equal to)
+
+
+<= (Less than or equal to)
+if (score >= 50)
+{
+    Console.WriteLine("Passed");
+}
+
+
+
+
 
 
 
