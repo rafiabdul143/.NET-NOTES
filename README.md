@@ -8,7 +8,7 @@ This repository serves as a centralized hub where I will be sharing all my learn
 - .NET Framework and .NET Core
 - ASP.NET and ASP.NET Core
 - Entity Framework (EF)
-- Windows Forms and WPF
+- Windows Forms and WPF 
 - Web APIs
 - Best practices, tips, and real-world project insights
 
