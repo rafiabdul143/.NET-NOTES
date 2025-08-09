@@ -317,5 +317,35 @@ if (score >= 50)
 
 
 
+TryParse is a method provided by many value types (like int, double, DateTime, etc.) in C#.
+Convert a string representation of a value into its typed equivalent.
+
+Return true if conversion succeeds, false if it fails — without throwing an exception.
+
+Output the converted value via an out parameter.
+example:
+bool Type.TryParse(string input, out Type result);
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string strNumber = "123";
+        int number;
+
+        if (int.TryParse(strNumber, out number))
+        {
+            Console.WriteLine($"Parsing succeeded: {number}");
+        }
+        else
+        {
+            Console.WriteLine("Parsing failed");
+        }
+    }
+}
+Output:Parsing succeeded: 123
+
 
 
