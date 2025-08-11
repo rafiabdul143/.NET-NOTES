@@ -417,4 +417,131 @@ public class FizzBuzzGame
     }
 }
 
+ 1. String Formatting
+ Used to insert values into a string with a specific format.
+ Example:
+ string result = string.Format("Hello {0}, you have {1} messages", "John", 5);
+ Output: Hello John, you have 5 messages
+ Example with number formatting:
+ double price = 1234.5678;
+ Console.WriteLine(string.Format("Price: {0:C}", price)); // Currency format
 
+ 2. String Interpolation
+ A more readable way to format strings (introduced in C# 6).
+ Example:
+ string name = "Alice";
+ int age = 25;
+ Console.WriteLine($"Name: {name}, Age: {age}");
+ Output: Name: Alice, Age: 25
+
+ 3. String Concatenation
+ Joining two or more strings.
+ Example:
+ string s1 = "Hello";
+ string s2 = "World";
+ // Using +
+ string result1 = s1 + " " + s2;
+ // Using Concat method
+ string result2 = string.Concat(s1, " ", s2);
+ // Using String.Join
+ string result3 = string.Join(" ", s1, s2);
+
+ 4. Empty String
+ An empty string contains zero characters: ""
+ Example:
+ string emptyStr = "";
+ Console.WriteLine(emptyStr.Length); // Output: 0
+
+ 5. String Function: Equals()
+ Used to compare two strings (case-sensitive by default).
+ Example:
+ string a = "Hello";
+ string b = "hello";
+ Console.WriteLine(a.Equals(b)); // False
+ Console.WriteLine(a.Equals(b, StringComparison.OrdinalIgnoreCase)); // True
+
+6. String Iteration
+ Loop through each character in a string.
+ Example:
+ string word = "Test";
+ foreach (char ch in word)
+ {
+ Console.WriteLine(ch);
+ }
+
+ 7. String Null or Empty Check
+ Use string.IsNullOrEmpty() or string.IsNullOrWhiteSpace().
+ Example:
+ string str1 = null;
+ string str2 = "";
+ string str3 = " ";
+ Console.WriteLine(string.IsNullOrEmpty(str1)); // True
+ Console.WriteLine(string.IsNullOrEmpty(str2)); // True
+ Console.WriteLine(string.IsNullOrWhiteSpace(str3)); // True
+
+ 8. String Reverse
+ Strings are immutable, so you need to convert to a char[] or use LINQ.
+ Example using Array.Reverse:
+ string original = "Hello";
+ char[] chars = original.ToCharArray();
+ Array.Reverse(chars);
+ string reversed = new string(chars);
+ Console.WriteLine(reversed); // olleH
+ Example using LINQ:
+ using System.Linq;
+ string reversed2 = new string(original.Reverse().ToArray());
+ Console.WriteLine(reversed2)
+ 9. Arrays
+ Arrays store multiple values of the same type in a single variable.
+ Example:
+ int[] numbers = { 1, 2, 3, 4, 5 };
+ Console.WriteLine(numbers[0]); // Output: 1
+
+ 10. Array Sorting
+ Use Array.Sort() to sort an array in ascending order.
+ Example:
+ int[] arr = { 5, 3, 8, 1, 2 };
+ Array.Sort(arr);
+ foreach (int num in arr) Console.Write(num + " "); // Output: 1 2 3 5 8
+
+11. Array Reversal
+ Use Array.Reverse() to reverse the order of elements.
+ Example:
+ int[] arr2 = { 1, 2, 3, 4, 5 };
+ Array.Reverse(arr2);
+ foreach (int num in arr2) Console.Write(num + " "); // Output: 5 4 3 2 1
+
+ 12. Array Clearing
+ Use Array.Clear() to set all elements to their default value.
+ Example:
+ int[] arr3 = { 1, 2, 3 };
+ Array.Clear(arr3, 0, arr3.Length);
+ foreach (int num in arr3) Console.Write(num + " "); // Output: 0 0 0
+
+ 13. Array IndexOf
+ Use Array.IndexOf() to find the index of an element.
+ Example:
+ int[] arr4 = { 10, 20, 30, 40 };
+ int index = Array.IndexOf(arr4, 30);
+ Console.WriteLine(index); // Output: 2
+
+ 14. Lists
+ Lists are dynamic arrays from System.Collections.Generic.
+ Example:
+ using System.Collections.Generic;
+ List fruits = new List() { "Apple", "Banana" };
+ fruits.Add("Orange");
+ fruits.Remove("Banana");
+ foreach (string fruit in fruits) Console.WriteLine(fruit);
+ // Output: Apple Orange
+
+ 15. Dictionary
+ A collection of key-value pairs.
+ Example:
+ using System.Collections.Generic;
+ Dictionary students = new Dictionary();
+ students.Add(1, "John");
+ students.Add(2, "Alice");
+ Console.WriteLine(students[1]); // Output: John
+ foreach (var kvp in students)
+ Console.WriteLine($"Key: {kvp.Key}, Value: {kvp.Value}")
