@@ -545,3 +545,76 @@ public class FizzBuzzGame
  Console.WriteLine(students[1]); // Output: John
  foreach (var kvp in students)
  Console.WriteLine($"Key: {kvp.Key}, Value: {kvp.Value}")
+
+ 1. Function (Method)
+ A function (or method) is a block of code that performs a specific task, defined inside a class.
+ Example:
+ int Add(int a, int b)
+ {
+ return a + b;
+ } 
+
+ 2. Void Function
+ A void function does not return any value.
+ Example:
+ void Greet()
+ {
+ Console.WriteLine("Hello, World!");
+ }
+
+ 3. Return Function
+ A return function returns a value to the caller.
+ Example:
+ int Multiply(int x, int y)
+ {
+ return x * y;
+ }
+
+ 4. Function with Parameters
+ Parameters allow passing values to the function.
+ Example:
+ void PrintMessage(string message)
+ {
+ Console.WriteLine(message);
+ }
+
+ 5. Out Parameter
+ The 'out' keyword passes arguments by reference and forces the method to assign a value before
+ returning.
+ Example:
+ void GetValues(out int a, out int b)
+ {
+ a = 10;
+ b = 20;
+ }
+ int x, y;
+ GetValues(out x, out y);
+ Console.WriteLine($"{x}, {y}"); // Output: 10, 20
+
+6. Reference Parameter (ref)
+ The 'ref' keyword passes arguments by reference, but the variable must be initialized before being
+ passed.
+ Example:
+ void DoubleValue(ref int number)
+ {
+ number *= 2;
+ }
+ int num = 5;
+ DoubleValue(ref num);
+ Console.WriteLine(num); // Output: 10
+
+ 7. Out vs Ref - Definition- ref: Requires the variable to be initialized before passing, can be modified inside the method.- out: Does not require initialization before passing, must be assigned a value inside the method.
+ Example:
+ void ExampleRef(ref int r)
+ {
+ r += 5;
+ }
+ void ExampleOut(out int o)
+ {
+ o = 10;
+ o += 5;
+ }
+ int a = 2;
+ ExampleRef(ref a); // a becomes 7
+ int b;
+ ExampleOut(out b); // b becomes 15
