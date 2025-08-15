@@ -1,4 +1,4 @@
-# .NET Resources & Notes Repository
+ # .NET Resources & Notes Repository
 
 Welcome to my **.NET Resources and Notes** repository! 👨‍💻
 
