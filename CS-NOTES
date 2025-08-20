@@ -618,3 +618,11 @@ public class FizzBuzzGame
  ExampleRef(ref a); // a becomes 7
  int b;
  ExampleOut(out b); // b becomes 15
+
+📌 What is a Delegate?
+
+A delegate in C# is a type that holds a reference to a method.
+
+It’s like a function pointer in C++, but type-safe and object-oriented.
+
+Delegates allow methods to be passed as parameters and enable callback mechanisms.
