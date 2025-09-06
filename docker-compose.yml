@@ -1,0 +1,109 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: stock-dashboard-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: stock-dashboard
+    volumes:
+      - mongodb_data:/data/db
+      - ./backend/scripts/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - stock-dashboard-network
+
+  # Backend Node.js Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: stock-dashboard-backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongodb:27017/stock-dashboard
+      - ML_SERVICE_URL=http://ml-service:8001
+      - JWT_SECRET=your-super-secret-jwt-key
+      - PORT=3000
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    depends_on:
+      - mongodb
+      - ml-service
+    networks:
+      - stock-dashboard-network
+    command: npm run dev
+
+  # ML Service Python FastAPI
+  ml-service:
+    build:
+      context: ./ml-service
+      dockerfile: Dockerfile
+    container_name: stock-dashboard-ml
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
+    environment:
+      - PYTHONPATH=/app
+      - DATA_STORAGE_PATH=/app/data
+    volumes:
+      - ./ml-service:/app
+      - ml_data:/app/data
+    networks:
+      - stock-dashboard-network
+    command: uvicorn main:app --host 0.0.0.0 --port 8001 --reload
+
+  # Frontend React Development Server
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: stock-dashboard-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:3000
+      - VITE_ML_SERVICE_URL=http://localhost:8001
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - stock-dashboard-network
+    command: npm run dev -- --host 0.0.0.0
+
+  # Redis for Caching (Optional)
+  redis:
+    image: redis:7.2-alpine
+    container_name: stock-dashboard-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - stock-dashboard-network
+    command: redis-server --appendonly yes
+
+volumes:
+  mongodb_data:
+    driver: local
+  ml_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  stock-dashboard-network:
+    driver: bridge
+
+# Development override file
+# Create docker-compose.override.yml for local customizations
+

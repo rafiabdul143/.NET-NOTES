@@ -1,0 +1,59 @@
+{
+  "name": "stock-prediction-dashboard",
+  "version": "1.0.0",
+  "description": "Full-stack MERN + Python stock prediction dashboard",
+  "main": "index.js",
+  "scripts": {
+    "install:all": "npm run install:frontend && npm run install:backend && npm run install:ml",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "install:ml": "cd ml-service && pip install -r requirements.txt",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" \"npm run dev:ml\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:ml": "cd ml-service && uvicorn main:app --reload --port 8001",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "start": "cd backend && npm start",
+    "test": "npm run test:frontend && npm run test:backend && npm run test:ml",
+    "test:frontend": "cd frontend && npm test",
+    "test:backend": "cd backend && npm test",
+    "test:ml": "cd ml-service && python -m pytest",
+    "lint": "npm run lint:frontend && npm run lint:backend",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:backend": "cd backend && npm run lint",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "seed": "cd backend && npm run seed"
+  },
+  "keywords": [
+    "stock",
+    "prediction",
+    "machine-learning",
+    "react",
+    "nodejs",
+    "python",
+    "fastapi",
+    "mongodb",
+    "dashboard"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/stock-prediction-dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/stock-prediction-dashboard/issues"
+  },
+  "homepage": "https://github.com/yourusername/stock-prediction-dashboard#readme"
+}
+
