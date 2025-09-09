@@ -5,7 +5,7 @@ A full-stack MERN + Python application for stock market analysis and prediction 
 ## 🏗️ Architecture
 
 - **Frontend**: React + Vite, TailwindCSS, Chart.js
-- **Backend**: Node.js/Express with JWT authentication
+- **Backend**: Node.js/Express with JWT authentication 
 - **ML Service**: Python FastAPI with RNN predictions
 - **Database**: MongoDB for user data and favorites
 
