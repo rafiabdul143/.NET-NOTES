@@ -13,7 +13,7 @@ A full-stack MERN + Python application for stock market analysis and prediction 
 
 ```
 stock-prediction-dashboard/
-├── frontend/                 # React + Vite application
+├── frontend/                 # React + Vite application 
 ├── backend/                  # Node.js/Express API server
 ├── ml-service/              # Python FastAPI ML service
 ├── docs/                    # Documentation
